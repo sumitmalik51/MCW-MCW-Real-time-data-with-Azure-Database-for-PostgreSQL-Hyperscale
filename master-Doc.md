@@ -127,15 +127,19 @@ In this exercise, you will obtain your PostgreSQL connection string and use the 
 
 4. Replace "{your_password}" with the administrative password you chose earlier (such as `Abc!1234567890`). The system doesn't store your plaintext password and so can't display it for you in the connection string. **Save the connection string** to Notebook or similar text editor for later.
 
-5. Launch pgAdmin. Select **Add New Server** on the home page.
+5. Select **Firewall** in the left-hand menu underneath Security. In the Firewall rules blade, select **+ Add firewall rule for current client IP address (xxx.xxx.xxx.xxx)** to add your IP to the server group's firewall.
+
+   ![The Firewall rules blade is displayed.](media/postgres-firewall.png 'Firewall rules')
+
+6. Launch pgAdmin. Select **Add New Server** on the home page.
 
    ![The pgAdmin home page is displayed with Add New Server highlighted.](media/pgadmin-home.png 'pgAdmin')
 
-6. In the **General** tab of the Create Server dialog, enter **Lab** into the Name field.
+7. In the **General** tab of the Create Server dialog, enter **Lab** into the Name field.
 
    ![The Name field is filled out in the General tab.](media/pgadmin-create-server-general.png 'Create Server - General tab')
 
-7. Select the **Connection** tab. Enter the following into the fields within the Connection tab:
+8. Select the **Connection** tab. Enter the following into the fields within the Connection tab:
 
    - **Host name/address**: paste the host value from the connection string you copied earlier (the string of text between `jdbc:postgresql://` and `:5432`. For example: `<your-server-name>.postgres.database.azure.com`)
    - **Port**: 5432
@@ -146,9 +150,9 @@ In this exercise, you will obtain your PostgreSQL connection string and use the 
 
    ![The previously described fields are filled in within the Connection tab.](media/pgadmin-create-server-connection.png 'Create Server - Connection tab')
 
-8. Click the **Save** button.
+9. Click the **Save** button.
 
-9. Expand the newly added **Lab** server under the Servers tree on the pgAdmin home page. You should be able to expand the citus database.
+10. Expand the newly added **Lab** server under the Servers tree on the pgAdmin home page. You should be able to expand the citus database.
 
    ![The pgAdmin home page is displayed and the Lab server is expanded.](media/pgadmin-home-connected.png 'pgAdmin home')
 
