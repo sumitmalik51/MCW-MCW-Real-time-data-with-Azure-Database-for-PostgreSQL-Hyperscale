@@ -95,17 +95,7 @@ Their current challenges with ReMarketable are:
 
 The solution begins with multiple sources of clickstream data, each from a different tenant, flowing in through a Kafka streaming ingest managed service provided by Azure Event Hubs. This allows Wide World Importers to continue using their existing code to produce Kafka events. An Apache Spark cluster running on Azure Databricks processes and transforms the data in real time, using Structured Streaming. Azure Data Lake Storage is used to store the Structured Streaming checkpoint for resiliency to recover from errors and prevent lost data. Azure Key Vault is used to securely store secrets, such as the Event Hubs and PostgreSQL connection strings, and serves as a backing for Azure Databricks secret scopes. All event data is stored written to an Azure Database for PostgreSQL managed Hyperscale (Citus) database cluster, offering both scale-up and scale-out capability with features that simplify sharding and partitioning time series and multi-tenant data. Data is periodically written to rollup tables, using a background process that runs on a scheduled basis, to provide extremely fast querying of pre-aggregated data that does not interfere with incoming streams of late-arriving data. Websites and Power BI reports and dashboards use this data to provide rich reports that can be run at scale with minimum processing time. An on-premises data gateway cluster runs on several VMs to update the Power BI dashboards at regular intervals to match the pre-aggregation processes that write to the rollup tables.
 
-## Requirements
 
-1. Microsoft Azure subscription must be pay-as-you-go or MSDN.
-   - Trial subscriptions will not work.
-   - **IMPORTANT**: To complete the OAuth 2.0 access components of this hands-on lab you must have permissions within your Azure subscription to create an App Registration and service principal within Azure Active Directory.
-2. Install [pgAdmin](https://www.pgadmin.org/download/) 4 or greater.
-3. Install [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
-
-## Before the hands-on lab
-
-Refer to the Before the hands-on lab setup guide manual before continuing to the lab exercises.
 
 ## Exercise 1: Connect to and set up your database
 
